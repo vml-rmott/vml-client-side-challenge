@@ -6,7 +6,20 @@ function palindrome(str){
 }
 
 function coinDeterminer(num){
-    return true;
+    coins = 0;
+    while (num >= 25) {
+        num -= 25;
+        coins++;
+    }
+    while (num >= 10) {
+        num -= 10;
+        coins++;
+    }
+    while (num >= 5) {
+        num -= 5;
+        coins++;
+    }
+    return (coins + num);
 }
 
 function countingMinutes(strArr){
