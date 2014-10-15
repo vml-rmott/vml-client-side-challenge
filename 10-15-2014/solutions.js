@@ -25,32 +25,22 @@ function coinDeterminer(num){
 function countingMinutes(strArr){
     var times = strArr.split("-");
 
-    var start = times[0].split(":");
-    var end = times[1].split(":");
+    var makeMinutes = function(strTime) {
+        var ss = strTime.split(":");
+        var h2 = parseInt(ss[0] * 60);
+        var bb = "" + ss[1].slice(2,4);
+        if (ss[0] == 12) {
+            h2 = 0;
+        }
+        if (bb == "pm" && ss[0] < 12) {
+            h2 += (12*60);
+        }
+        var y = parseInt(ss[1].slice(0,2));
+        return (h2 + y);
+    };
 
-    var h1 = parseInt(start[0] * 60);
-    var aa = "" + start[1].slice(2,4);
-    if (start[0] == 12) {
-        h1 = 0;
-    }
-    if (aa == "pm" && start[0] < 12) {
-        h1 += (12*60);
-    }
-
-    var h2 = parseInt(end[0] * 60);
-    var bb = "" + end[1].slice(2,4);
-    if (end[0] == 12) {
-        h2 = 0;
-    }
-    if (bb == "pm" && end[0] < 12) {
-        h2 += (12*60);
-    }
-
-    var x = parseInt(start[1].slice(0,2));
-    var y = parseInt(end[1].slice(0,2));
-
-    var startMinutes = (h1 + x);
-    var endMinutes = (h2 + y);
+    var startMinutes = makeMinutes(times[0]);
+    var endMinutes = makeMinutes(times[1]);
 
     if (startMinutes >= endMinutes) {
         endMinutes += 1440;
