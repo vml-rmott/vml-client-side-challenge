@@ -1,7 +1,8 @@
 // All JS code goes in this file.
 
 function palindrome(str){
-    return true;
+    rstr = str.split("").reverse().join("");
+    return str.toUpperCase() == rstr.toUpperCase() ? true : false;
 }
 
 function coinDeterminer(num){
