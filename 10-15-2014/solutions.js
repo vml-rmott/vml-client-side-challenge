@@ -26,9 +26,9 @@ function countingMinutes(strArr){
     times = strArr.split("-");
     start = times[0].split(":");
     end = times[1].split(":");
-    h1 = start[0] * 60;
+    h1 = parseInt(start[0] * 60);
     //return start[1];
-    aa = "" + start[1].substring(2,4);
+    aa = "" + start[1].substring(-2,2);
     if (aa == "pm") {
         //return 999;
         h1 += 12*60;
@@ -38,8 +38,8 @@ function countingMinutes(strArr){
         }
     }
     //return h1;
-    h2 = end[0] * 60;
-    bb = "" + end[1].substring(2,4)
+    h2 = parseInt(end[0] * 60);
+    bb = "" + end[1].substring(-2,2)
     if (bb == "pm") {
         //return 999;
         h2 += 12*60;
@@ -50,17 +50,19 @@ function countingMinutes(strArr){
     }
     if (bb == "am" || aa == "pm") {
         //return "here";
-        h1 += 24;
+        h2 += 24*60;
     }
     if (bb == aa && h1 == h2 && x == y) {
         return 1440;
     }
     //return h2;
-    x = parseInt(start[1].substring(0,2));
+    x = parseInt(start[1].substring(-4,2));
     //return x;
-    y = parseInt(end[1].substring(0,2));
+    y = parseInt(end[1].substring(-4,2));
     //return y;
-    return (parseInt(h2) + y) - (parseInt(h1) + x);
+    //return (h2 + y);
+    //return (h1 + x);
+    return (h2 + y) - (h1 + x);
     //return b - a;
 }
 
