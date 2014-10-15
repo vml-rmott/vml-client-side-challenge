@@ -24,46 +24,39 @@ function coinDeterminer(num){
 
 function countingMinutes(strArr){
     var times = strArr.split("-");
-    if (times[0] == times[1]) {
-        return 1440;
-
-    }
 
     var start = times[0].split(":");
     var end = times[1].split(":");
+
     var h1 = parseInt(start[0] * 60);
-    //return start[1];
     var aa = "" + start[1].substring(2,4);
     if (start[0] == 12) {
         h1 = 0;
     }
     if (aa == "pm" && start[0] < 12) {
-        //return 999;
         h1 += (12*60);
     }
-    //return h1;
+
     var h2 = parseInt(end[0] * 60);
     var bb = "" + end[1].substring(2,4);
     if (end[0] == 12) {
         h2 = 0;
     }
     if (bb == "pm" && end[0] < 12) {
-        //return 999;
         h2 += (12*60);
     }
-    if (bb == "am" && aa == "pm") {
-        //return "here";
-        h2 += 1440;
-    }
-    //return h2;
+
     var x = parseInt(start[1].substring(0,2));
-    //return x;
     var y = parseInt(end[1].substring(0,2));
-    //return y;
-    //return (h2 + y);
-    //return (h1 + x);
-    return (h2 + y) - (h1 + x);
-    //return b - a;
+
+    var startMinutes = (h1 + x);
+    var endMinutes = (h2 + y);
+
+    if (startMinutes >= endMinutes) {
+        endMinutes += 1440;
+    }
+
+    return endMinutes - startMinutes;
 }
 
 module.exports.palindrome = palindrome;

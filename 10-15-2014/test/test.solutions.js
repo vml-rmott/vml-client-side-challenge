@@ -38,4 +38,16 @@ describe('countingMinutes', function(){
     it('12:40am-3:00am should return 140', function(){
         assert.equal(140, solutions.countingMinutes('12:40am-3:00am'));
     });
+    it('12:40am-12:39am should return 1439', function(){
+        assert.equal(1439, solutions.countingMinutes('12:40am-12:39am'));
+    });
+    it('12:40pm-12:39pm should return 1439', function(){
+        assert.equal(1439, solutions.countingMinutes('12:40pm-12:39pm'));
+    });
+    it('2:40am-2:39am should return 1439', function(){
+        assert.equal(1439, solutions.countingMinutes('2:40am-2:39am'));
+    });
+    it('2:40pm-2:39pm should return 1439', function(){
+        assert.equal(1439, solutions.countingMinutes('2:40pm-2:39pm'));
+    });
 });
