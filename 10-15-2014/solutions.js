@@ -29,7 +29,7 @@ function countingMinutes(strArr){
     var end = times[1].split(":");
 
     var h1 = parseInt(start[0] * 60);
-    var aa = "" + start[1].substring(2,4);
+    var aa = "" + start[1].slice(2,4);
     if (start[0] == 12) {
         h1 = 0;
     }
@@ -38,7 +38,7 @@ function countingMinutes(strArr){
     }
 
     var h2 = parseInt(end[0] * 60);
-    var bb = "" + end[1].substring(2,4);
+    var bb = "" + end[1].slice(2,4);
     if (end[0] == 12) {
         h2 = 0;
     }
@@ -46,8 +46,8 @@ function countingMinutes(strArr){
         h2 += (12*60);
     }
 
-    var x = parseInt(start[1].substring(0,2));
-    var y = parseInt(end[1].substring(0,2));
+    var x = parseInt(start[1].slice(0,2));
+    var y = parseInt(end[1].slice(0,2));
 
     var startMinutes = (h1 + x);
     var endMinutes = (h2 + y);
