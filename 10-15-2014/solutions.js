@@ -1,8 +1,8 @@
 // All JS code goes in this file.
 
 function palindrome(str){
-    rstr = str.split("").reverse().join("");
-    return str.toUpperCase() == rstr.toUpperCase() ? true : false;
+    rstr = str.replace(/[^A-Za-z]/gi, '').split("").reverse().join("");
+    return str.replace(/[^A-Za-z]/gi, '').toUpperCase() == rstr.toUpperCase();
 }
 
 function coinDeterminer(num){
