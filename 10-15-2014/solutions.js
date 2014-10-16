@@ -2,8 +2,7 @@
 
 function palindrome(str){
     str = str.replace(/[^a-z]/gi, '').toUpperCase();
-    var rstr = str.split("").reverse().join("");
-    return str == rstr;
+    return str == str.split("").reverse().join("");
 }
 
 function coinDeterminer(num){
